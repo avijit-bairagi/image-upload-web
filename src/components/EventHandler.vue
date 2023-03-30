@@ -1,5 +1,4 @@
-<template>
-</template>
+<template></template>
 
 <script>
 import SockJS from "sockjs-client";
@@ -22,11 +21,12 @@ export default {
             console.log(msg);
             var data = JSON.parse(msg.body);
             console.log(data);
-            this.$swal(  'Success!',data.message,'success');
+            this.$swal('Success!', data.message, 'success');
           });
         },
         error => {
           console.log(error);
+          this.$swal('Failed!', 'Server connectivity falied.', 'error');
         }
       );
     }
@@ -36,7 +36,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-
-</style>
